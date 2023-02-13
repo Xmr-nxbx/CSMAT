@@ -15,6 +15,12 @@ tree-sitter 0.20.1
 
 本项目给出了以下模型的代码和结果： 
 
+## 测试集参考代码
+
+测试集参考代码见 `references` 文件夹：
+- c#：output.cs
+- java: output.java
+
 ## 实验模型
 
 | 文件夹名称                         | 模型名称                                    |
