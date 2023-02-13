@@ -1,5 +1,7 @@
 # 基于代码语句掩码注意力机制的源代码迁移模型
 
+本研究提出了CSMAT（Code-Statement Masked Attention Transformer）。
+
 本项目的运行环境：
 ```
 python 3.9
@@ -15,14 +17,14 @@ tree-sitter 0.20.1
 
 ## 实验模型
 
-| 文件夹名称                         | 模型名称                             |
-| ---------------------------------- | ------------------------------------ |
-| transformer_large                  | Transformer                          |
-| transformer_large_loc_tok          | LOC-Transformer                      |
-| transformer_large_loc_enc          | LOC-Transformer<sub>enc</sub>        |
-| transformer_large_loc_enc_qua_dec  | LOC-transformer<sub>enc-1/4dec</sub> |
-| transformer_large_loc_enc_half_dec | LOC-transformer<sub>enc-1/2dec</sub> |
-| transformer_large_loc_enc_3qua_dec | LOC-transformer<sub>enc-3/4dec</sub> |
+| 文件夹名称                         | 模型名称                                    |
+| ---------------------------------- | ------------------------------------------- |
+| transformer_large                  | Transformer                                 |
+| transformer_large_loc_tok          | LOC-Transformer                             |
+| transformer_large_loc_enc          | LOC-Transformer<sub>enc</sub>               |
+| transformer_large_loc_enc_qua_dec  | LOC-transformer<sub>enc-1/4dec</sub>        |
+| transformer_large_loc_enc_half_dec | CSMAT(LOC-transformer<sub>enc-1/2dec</sub>) |
+| transformer_large_loc_enc_3qua_dec | LOC-transformer<sub>enc-3/4dec</sub>        |
 
 ## 改进模型
 | 文件夹名称                     | 模型名称                               |
@@ -57,30 +59,30 @@ BLEU、完全匹配率（EM）、CodeBLEU见[CodeTrans项目](https://github.com
 
 ## 实验结果（非预训练模型）
 ### java -> c#
-| 模型                                 | BLEU      | 完全匹配率 | CodeBLEU  | 词法正确率 |
-| ------------------------------------ | --------- | ---------- | --------- | ---------- |
-| Naive                                | 18.54     | 0          | -         | -          |
-| Pointer-Generator                    | 26.18     | 13.8       | 43.87     | 48.5       |
-| Tree-to-tree                         | 36.34     | 3.4        | 42.13     | 45.6       |
-| Transformer                          | 60.99     | 37.9       | 66.88     | 89.0       |
-| LOC-Transformer                      | 60.39     | 37.5       | 66.49     | 88.7       |
-| LOC-Transformer<sub>enc</sub>        | 62.53     | 38.8       | **68.42** | 89.2       |
-| LOC-Transformer<sub>enc-1/4dec</sub> | 62.22     | 38.9       | 68.09     | 90.1       |
-| LOC-Transformer<sub>enc-1/2dec</sub> | **62.74** | **39.5**   | 67.82     | **90.2**   |
-| LOC-Transformer<sub>enc-3/4dec</sub> | 61.81     | 38.1       | 67.86     | 90.1       |
+| 模型                                        | BLEU      | 完全匹配率 | CodeBLEU  | 词法正确率 |
+| ------------------------------------------- | --------- | ---------- | --------- | ---------- |
+| Naive                                       | 18.54     | 0          | -         | -          |
+| Pointer-Generator                           | 26.18     | 13.8       | 43.87     | 48.5       |
+| Tree-to-tree                                | 36.34     | 3.4        | 42.13     | 45.6       |
+| Transformer                                 | 60.99     | 37.9       | 66.88     | 89.0       |
+| LOC-Transformer                             | 60.39     | 37.5       | 66.49     | 88.7       |
+| LOC-Transformer<sub>enc</sub>               | 62.53     | 38.8       | **68.42** | 89.2       |
+| LOC-Transformer<sub>enc-1/4dec</sub>        | 62.22     | 38.9       | 68.09     | 90.1       |
+| CSMAT(LOC-Transformer<sub>enc-1/2dec</sub>) | **62.74** | **39.5**   | 67.82     | **90.2**   |
+| LOC-Transformer<sub>enc-3/4dec</sub>        | 61.81     | 38.1       | 67.86     | 90.1       |
 
 ### c# -> java
-| 模型                                 | BLEU      | 完全匹配率 | CodeBLEU  | 词法正确率 |
-| ------------------------------------ | --------- | ---------- | --------- | ---------- |
-| Naive                                | 18.69     | 0          | -         | -          |
-| Pointer-Generator                    | 27.84     | 20.5       | 44.88     | 48.6       |
-| Tree-to-tree                         | 32.09     | 4.4        | 43.86     | 65.2       |
-| Transformer                          | 55.41     | 40.6       | 62.20     | 89.2       |
-| LOC-Transformer                      | 55.84     | 40.8       | 62.31     | 89.0       |
-| LOC-Transformer<sub>enc</sub>        | 58.80     | **42.4**   | 64.64     | 89.3       |
-| LOC-Transformer<sub>enc-1/4dec</sub> | 58.64     | 41.4       | 64.78     | 88.4       |
-| LOC-Transformer<sub>enc-1/2dec</sub> | **59.09** | 41.5       | **65.14** | **89.4**   |
-| LOC-Transformer<sub>enc-3/4dec</sub> | 57.59     | 39.4       | 63.71     | 88.4       |
+| 模型                                        | BLEU      | 完全匹配率 | CodeBLEU  | 词法正确率 |
+| ------------------------------------------- | --------- | ---------- | --------- | ---------- |
+| Naive                                       | 18.69     | 0          | -         | -          |
+| Pointer-Generator                           | 27.84     | 20.5       | 44.88     | 48.6       |
+| Tree-to-tree                                | 32.09     | 4.4        | 43.86     | 65.2       |
+| Transformer                                 | 55.41     | 40.6       | 62.20     | 89.2       |
+| LOC-Transformer                             | 55.84     | 40.8       | 62.31     | 89.0       |
+| LOC-Transformer<sub>enc</sub>               | 58.80     | **42.4**   | 64.64     | 89.3       |
+| LOC-Transformer<sub>enc-1/4dec</sub>        | 58.64     | 41.4       | 64.78     | 88.4       |
+| CSMAT(LOC-Transformer<sub>enc-1/2dec</sub>) | **59.09** | 41.5       | **65.14** | **89.4**   |
+| LOC-Transformer<sub>enc-3/4dec</sub>        | 57.59     | 39.4       | 63.71     | 88.4       |
 
 ## 实验结果（预训练模型）
 ### java -> c#
