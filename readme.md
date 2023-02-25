@@ -8,6 +8,7 @@ python 3.9
 pytorch 1.13.1
 transformers 4.25.1
 tree-sitter 0.20.1
+scipy 1.9.3
 ```
 其中tree-sitter用于验证词法正确率，需要参考[python tree-sitter教程](https://github.com/tree-sitter/py-tree-sitter)生成`my-languages.so`文件
 
