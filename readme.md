@@ -99,7 +99,7 @@ BLEU、完全匹配率（EM）、CodeBLEU见[CodeTrans项目](https://github.com
 | LOC-CodeBERT<sub>enc</sub>             | 76.73 | 54.2       | 80.22    | 93.5       |
 | LOC-CodeBERT<sub>enc-1/2dec</sub>      | 77.46 | 53.2       | 80.51    | 95.4       |
 | GraphCodeBERT                          | 78.84 | 55.1       | 81.16    | 94.0       |
-| LOC-GraphCodeBERT<sub>enc</sub>        | 78.85 | 55.0       | 81.84    | 85.7       |
+| LOC-GraphCodeBERT<sub>enc</sub>        | 78.85 | 55.0       | 81.84    | 95.7       |
 | LOC-GraphCodeBERT<sub>enc-1/2dec</sub> | 77.90 | 54.1       | 80.75    | 94.8       |
 
 ### c# -> java
