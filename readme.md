@@ -18,6 +18,9 @@ scipy 1.9.3
 
 ## 测试集参考代码
 
+需要注意的是，[Astyle](https://astyle.sourceforge.net/)工具格式化代码后和源代码存在空格符格式上的差异。  
+因此为了统一输出，`references`给出了参考代码，用于评估结果。  
+
 测试集参考代码见 `references` 文件夹：
 - c#：output.cs
 - java: output.java
@@ -43,7 +46,7 @@ scipy 1.9.3
 | graphcodebert_loc_enc          | LOC-GraphCodeBERT<sub>enc</sub>        |
 | graphcodebert_loc_enc_half_dec | LOC-GraphCodeBERT<sub>enc-1/2dec</sub> |
 
-## 模型项目的内容
+## 模型项目的内容 和 运行项目
 
 | 文件/文件夹 | 简介                                        |
 | ----------- | ------------------------------------------- |
@@ -54,12 +57,32 @@ scipy 1.9.3
 | run.py      | 执行文件                                    |
 | train.sh    | shell脚本                                   |
 
-若需自定义并运行项目，修改train.sh脚本中的模型参数后，运行即可
+若需自定义并运行项目，修改train.sh脚本中的模型参数后，运行即可：
 
-## 参考代码（用于验证模型输出）
+### 1. 新建环境(conda)
 
-需要注意的是，[Astyle](https://astyle.sourceforge.net/)工具格式化代码后和源代码存在空格符格式上的差异。  
-为了统一输出，`references`给出了参考代码，用于评估结果。  
+```
+conda create -n CSMAT python=3.9
+
+conda activate CSMAT
+
+pip install torch transformers tree-sitter scipy
+```
+
+### 2. 选择模型并修改模型参数
+
+以`CodeBERT`为例
+```
+cd codebert
+
+vim train.sh
+```
+
+### 3. 运行模型
+
+```
+source train.sh
+```
 
 ## 评估指标
 BLEU、完全匹配率（EM）、CodeBLEU见[CodeTrans项目](https://github.com/microsoft/CodeXGLUE/tree/main/Code-Code/code-to-code-trans)，词法正确率见`detect_problem_output.py`参考代码。
