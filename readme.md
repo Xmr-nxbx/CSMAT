@@ -2,6 +2,22 @@
 
 本研究提出了CSMAT（Code-Statement Masked Attention Transformer）。
 
+> 论文已被[《计算机系统应用录用》](http://www.c-s-a.org.cn/csa/home)录用  
+> 论文名：基于代码语句掩码注意力机制的源代码迁移模型  
+> 作者：徐明瑞 李征 刘勇 吴永豪  
+> 论文引用格式将在正式发表后更新
+
+CSMAT编码器注意力的连接样式和掩码矩阵：
+![编码器注意力连接样式和掩码矩阵](./figs/encoder_attention_style.png)
+
+CSMAT译码器自注意力的连接样式和掩码矩阵：
+![编码器自注意力连接样式和掩码矩阵](./figs/decoder_self_attention_style.png)
+
+CSMAT译码器跨层注意力的连接样式和掩码矩阵：
+![译码器跨层注意力的连接样式和掩码矩阵](./figs/decoder_cross_attention_style.png)
+
+
+
 本项目的运行环境：
 ```
 python 3.9
