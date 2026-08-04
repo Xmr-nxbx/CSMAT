@@ -4,6 +4,6 @@
 
 **请用微信扫描以下二维码重新登录**（5分钟内有效，若过期本文件会自动更新）：
 
-https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=0ad494bb093cdf84fef3762947df36ab&bot_type=3
+https://liteapp.weixin.qq.com/q/7GiQu1?qrcode=5f3dbce3651644322305e49638a28fe1&bot_type=3
 
-生成时间: 2026-08-04 08:13:01
+生成时间: 2026-08-04 08:17:06
